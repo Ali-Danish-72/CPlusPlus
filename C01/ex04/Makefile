@@ -1,7 +1,7 @@
 ###############################################################################
 #                                  VARIABLES                                  #
 ###############################################################################
-NAME = violence
+NAME = sed
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 RESET=\033[0m
@@ -10,7 +10,7 @@ GREEN=\033[1;32m
 BLUE=\033[1;34m
 CYAN=\033[1;36m
 SRCS_DIR = sources/
-SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS = main.cpp util.cpp
 SRCS_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS_DIR = objects/
 OBJS = $(SRCS:%.cpp=%.o)
