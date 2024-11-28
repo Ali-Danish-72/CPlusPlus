@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:00:26 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/28 16:24:45 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 16:51:36 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ void Harl::complain(std::string level) {
 	switch (i) {
 		case 0:
 			this->debug();
+			/* fallthrough */
 		case 1:
 			this->info();
+			/* fallthrough */
 		case 2:
 			this->warning();
+			/* fallthrough */
 		case 3:
 			this->error();
 			return;

@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:16:08 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/25 18:00:07 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 16:38:58 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(int ac, char **av) {
 		return 3;
 	}
 	std::string store = findAndReplaceStrings(fileContainer.str(), av[2], av[3]);
-	std::ofstream outputFile(av[1] + (std::string)".replace");
+	std::ofstream outputFile(((std::string)(av[1] + (std::string)".replace")).c_str());
 	if (outputFile.rdstate()) {
 		inputFile.close();
 		outputFile.close();
