@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:16:08 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/28 16:38:58 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 19:13:13 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int main(int ac, char **av) {
 		return 4;
 	}
 	outputFile.write(store.c_str(), store.length());
+	inputFile.close();
+	outputFile.close();
 	return 0;
 }

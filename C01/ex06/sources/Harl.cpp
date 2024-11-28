@@ -6,10 +6,11 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:00:26 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/28 16:51:36 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 19:14:24 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "../includes/Harl.hpp"
 
 Harl::Harl(void) {

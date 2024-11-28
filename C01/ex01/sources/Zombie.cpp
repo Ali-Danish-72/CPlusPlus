@@ -6,14 +6,14 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 11:25:11 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/24 18:01:58 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 18:57:00 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "../includes/Zombie.hpp"
 
-Zombie::Zombie(std::string name) {
-	this->_name = name;
+Zombie::Zombie(std::string name) : _name(name){
 	return;
 }
 
@@ -22,7 +22,7 @@ Zombie::Zombie(void) {
 }
 
 Zombie::~Zombie(void) {
-	std::cerr << this->_name << std::endl;
+	std::cerr << "Destructing " << this->_name << std::endl;
 	return;
 }
 

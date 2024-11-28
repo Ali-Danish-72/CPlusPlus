@@ -6,10 +6,11 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:27:27 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/24 16:36:50 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 19:18:50 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "../includes/Zombie.hpp"
 
 int main() {

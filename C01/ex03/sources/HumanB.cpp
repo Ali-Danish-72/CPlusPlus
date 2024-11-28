@@ -6,25 +6,18 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 18:12:23 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/24 18:49:38 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 19:11:24 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "../includes/HumanB.hpp"
 
-HumanB::HumanB(void) {
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {
 	return;
 }
 
-HumanB::HumanB(std::string name) {
-	this->_name = name;
-	this->_weapon = NULL;
-	return;
-}
-
-HumanB::HumanB(std::string name, Weapon &weapon) {
-	this->_name = name;
-	*this->_weapon = weapon;
+HumanB::HumanB(std::string name, Weapon &weapon) : _name(name), _weapon(&weapon){
 	return;
 }
 

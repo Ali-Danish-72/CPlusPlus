@@ -6,13 +6,12 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 11:21:08 by mdanish           #+#    #+#             */
-/*   Updated: 2024/11/24 18:03:37 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/11/28 18:56:13 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
 #include <string>
 
 class Zombie {
@@ -23,6 +22,7 @@ class Zombie {
 		Zombie(void);
 		Zombie(std::string name);
 		~Zombie(void);
+
 		void announce(void);
 		void setName(std::string name);
 };
