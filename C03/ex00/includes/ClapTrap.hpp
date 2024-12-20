@@ -6,12 +6,13 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 12:45:20 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/12 15:42:29 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:10:18 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <iostream>
 #include <string>
 
 class ClapTrap {
@@ -31,6 +32,11 @@ class ClapTrap {
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+
 		int getAttackDamage(void) const;
-		void status(void) const;
+		int getEnergyPoints(void) const;
+		int getHitPoints(void) const;
+		const std::string getName(void) const;
 };
+
+std::ostream & operator << (std::ostream & out, ClapTrap const & other);

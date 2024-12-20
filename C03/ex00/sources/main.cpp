@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:31:37 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/12 15:41:26 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:11:44 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int main(void) {
 	ClapTrap bob("bob");
 	ClapTrap rob = ClapTrap("rob");
 
-	bob.status();
-	rob.status();
+	std::cout << bob;
+	std::cout << rob;
 	rob.attack("bob");
 	bob.takeDamage(rob.getAttackDamage());
-	bob.status();
-	rob.status();
+	std::cout << bob;
+	std::cout << rob;
 	bob.attack("rob");
 	rob.takeDamage(bob.getAttackDamage());
-	bob.status();
-	rob.status();
+	std::cout << bob;
+	std::cout << rob;
 	bob.beRepaired(3);
 	rob.beRepaired(3);
-	bob.status();
-	rob.status();
+	std::cout << bob;
+	std::cout << rob;
 	return 0;
 }
