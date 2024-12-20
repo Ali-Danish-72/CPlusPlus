@@ -6,38 +6,25 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:31:37 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 21:36:20 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 21:54:02 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/FragTrap.hpp"
+#include "../includes/DiamondTrap.hpp"
 
 int main(void) {
-	ClapTrap bob("bob");
-	FragTrap rob("rob");
+	DiamondTrap Monster("Monster");
 
-	std::cout << bob;
-	std::cout << rob;
-	rob.attack("bob");
-	bob.takeDamage(rob.getAttackDamage());
-	std::cout << bob;
-	std::cout << rob;
-	bob.attack("tom");
-	rob.takeDamage(bob.getAttackDamage());
-	std::cout << bob;
-	std::cout << rob;
-	rob.highFivesGuys();
-	bob.beRepaired(10);
-	rob.beRepaired(10);
-	std::cout << bob;
-	std::cout << rob;
-	rob.attack("bob");
-	bob.takeDamage(rob.getAttackDamage());
-	std::cout << bob;
-	std::cout << rob;
-	bob.attack("tom");
-	rob.takeDamage(bob.getAttackDamage());
-	std::cout << bob;
-	std::cout << rob;
+	std::cout << Monster;
+	Monster.attack("Fernando");
+	Monster.highFivesGuys();
+	Monster.whoAmI();
+	std::cout << Monster;
+	Monster.beRepaired(1);
+	std::cout << Monster;
+	Monster.guardGate();
+	Monster.highFivesGuys();
+	Monster.takeDamage(1);
+	std::cout << Monster;
 	return 0;
 }

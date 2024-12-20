@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 12:48:32 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 22:11:12 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:13:46 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ClapTrap::~ClapTrap(void) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-	if (!this->_hitPoints)
+	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no energy left.\n");
@@ -63,7 +63,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (!this->_hitPoints)
+	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no energy left.\n");
@@ -90,5 +90,6 @@ const std::string ClapTrap::getName(void) const {
 
 std::ostream & operator << (std::ostream & out, ClapTrap const & other) {
 	out << other.getName() << " has " << other.getHitPoints() << " health and " << other.getEnergyPoints() << " energy.\n";
+	out << "It is also capable of dealing " << other.getAttackDamage() << " points of damage.\n";
 	return out;
 }

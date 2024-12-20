@@ -6,18 +6,18 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 12:48:32 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 15:27:35 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:03:28 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("Nameless"), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ClapTrap::ClapTrap(void) : _name("Nameless"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap Default Constructor called.\n";
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap Parametric Constructor called.\n";
 	return;
 }
@@ -45,7 +45,7 @@ ClapTrap::~ClapTrap(void) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-	if (!this->_hitPoints)
+	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no energy left.\n");
@@ -63,7 +63,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (!this->_hitPoints)
+	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no energy left.\n");
@@ -90,5 +90,6 @@ const std::string ClapTrap::getName(void) const {
 
 std::ostream & operator << (std::ostream & out, ClapTrap const & other) {
 	out << other.getName() << " has " << other.getHitPoints() << " health and " << other.getEnergyPoints() << " energy.\n";
+	out << "It is also capable of dealing " << other.getAttackDamage() << " points of damage.\n";
 	return out;
 }

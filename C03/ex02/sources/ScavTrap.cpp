@@ -6,18 +6,24 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:44:16 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 16:03:09 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/20 20:17:40 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap Default Constructor called.\n";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap Parametric Constructor called.\n";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap & other) : ClapTrap(other){
@@ -42,7 +48,7 @@ ScavTrap::~ScavTrap(void) {
 }
 
 void ScavTrap::attack(const std::string &target) {
-	if (!this->_hitPoints)
+	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ScavTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
 		return (void)(std::cout << "ScavTrap " << this->_name << " has no energy left.\n");
