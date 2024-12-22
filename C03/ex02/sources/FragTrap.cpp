@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:12:39 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 21:38:29 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:18:19 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ FragTrap::~FragTrap(void) {
 	std::cout << "FragTrap Destructor called.\n";
 }
 
-void FragTrap::attack(const std::string &target) {
+void FragTrap::attack(const std::string & target) {
 	if (this->_hitPoints < 1)
 		return (void)(std::cout << "FragTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)

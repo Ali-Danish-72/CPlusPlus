@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 12:48:32 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 22:03:28 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:18:19 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap::~ClapTrap(void) {
 	return;
 }
 
-void ClapTrap::attack(const std::string &target) {
+void ClapTrap::attack(const std::string & target) {
 	if (this->_hitPoints < 1)
 		return (void)(std::cout << "ClapTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)

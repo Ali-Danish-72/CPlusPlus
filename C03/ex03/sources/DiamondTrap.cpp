@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 19:30:03 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 21:53:14 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:23:02 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,8 @@ DiamondTrap::~DiamondTrap(void) {
 
 void DiamondTrap::whoAmI(void) {
 	std::cout << "I am " << this->_name << ", also known as " << ClapTrap::_name << ".\n";
+}
+
+void DiamondTrap::attack(const std::string & target) {
+	ScavTrap::attack(target);
 }

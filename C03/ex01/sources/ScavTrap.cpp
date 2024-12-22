@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:44:16 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/20 20:32:04 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:14:42 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << "ScavTrap Destructor called.\n";
 }
 
-void ScavTrap::attack(const std::string &target) {
+void ScavTrap::attack(const std::string & target) {
 	if (!this->_hitPoints)
 		return (void)(std::cout << "ScavTrap " << this->_name << " has no health left.\n");
 	if (!this->_energyPoints)
