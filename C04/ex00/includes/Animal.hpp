@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 16:13:01 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/23 07:17:47 by mdanish          ###   ########.fr       */
+/*   Created: 2024/12/22 19:17:48 by mdanish           #+#    #+#             */
+/*   Updated: 2024/12/22 23:20:05 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include <string>
 
-class FragTrap : virtual public ClapTrap {
+class Animal {
 	protected:
-		int _hitPoints;
-		int _attackDamage;
+		std::string _type;
 
 	public:
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & other);
-		virtual ~FragTrap(void);
-		FragTrap & operator = (const FragTrap & other);
+		Animal(void);
+		Animal(std::string type);
+		Animal(const Animal & other);
+		virtual ~Animal(void);
+		Animal & operator = (const Animal & other);
 
-		void attack(const std::string & target);
-		void highFivesGuys(void);
+		virtual void makeSound(void) const;
+		const std::string & getType(void) const;
 };

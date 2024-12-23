@@ -6,22 +6,20 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 19:30:03 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/22 16:23:02 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/24 03:38:31 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : _name("Nameless") {
+DiamondTrap::DiamondTrap(void) : ClapTrap("Nameless_clap_name"), _name("Nameless") {
 	std::cout << "DiamondTrap Default Constructor called.\n";
-	ClapTrap::_name = this->_name + "_clap_name";
 	ClapTrap::_attackDamage = FragTrap::_attackDamage;
 	ClapTrap::_hitPoints = FragTrap::_hitPoints;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name), _name(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name) {
 	std::cout << "DiamondTrap Parametric Constructor called.\n";
-	ClapTrap::_name = this->_name + "_clap_name";
 	ClapTrap::_attackDamage = FragTrap::_attackDamage;
 	ClapTrap::_hitPoints = FragTrap::_hitPoints;
 }

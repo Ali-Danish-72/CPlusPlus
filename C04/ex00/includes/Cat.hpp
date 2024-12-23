@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 16:13:01 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/23 07:17:47 by mdanish          ###   ########.fr       */
+/*   Created: 2024/12/22 23:04:34 by mdanish           #+#    #+#             */
+/*   Updated: 2024/12/22 23:16:40 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class FragTrap : virtual public ClapTrap {
-	protected:
-		int _hitPoints;
-		int _attackDamage;
-
+class Cat : public Animal {
 	public:
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & other);
-		virtual ~FragTrap(void);
-		FragTrap & operator = (const FragTrap & other);
+		Cat(void);
+		Cat(const Cat & other);
+		~Cat(void);
+		Cat & operator = (const Cat & other);
 
-		void attack(const std::string & target);
-		void highFivesGuys(void);
+		void makeSound(void) const;
 };
