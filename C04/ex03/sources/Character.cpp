@@ -6,19 +6,27 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 19:43:30 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/25 23:21:10 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/26 23:03:19 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Character.hpp"
 #include <iostream>
 
-Character::Character(std::string const & name) : _name(name), _droppedCount(0) {
+Character::Character(void) : _name("Default") {
 	std::cout << "Default Character Constructor called.\n";
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
+		this->_available[i] = false;
 		this->_materials[i] = NULL;
-	for (int i = 0; i < 500; i++)
-		this->_dropped[i] = NULL;
+	}
+}
+
+Character::Character(std::string const name) : _name(name) {
+	std::cout << "Parametric Character Constructor called.\n";
+	for (int i = 0; i < 4; i++) {
+		this->_available[i] = false;
+		this->_materials[i] = NULL;
+	}
 }
 
 Character::Character(Character const & other) : _name(other._name) {
@@ -30,24 +38,17 @@ Character::~Character(void) {
 	std::cout << "Character Destructor called.\n";
 	for (int i = 0; i < 4; i++)
 		delete this->_materials[i];
-	while (this->_droppedCount--)
-		delete this->_dropped[this->_droppedCount];
 }
-
-AMateria * typeBasedAllocation(AMateria * material);
 
 Character & Character::operator = (Character const & other) {
 	if (this != &other) {
 		for (int i = 0; i < 4; i++) {
 			delete this->_materials[i];
-			this->_materials[i] = typeBasedAllocation(other._materials[i]);
+			this->_materials[i] = other._materials[i]->clone();
+			if (!this->_materials[i])
+				std::cerr << "Cloning has failed\n";
+			this->_available[i] = other._available[i];
 		}
-		while (this->_droppedCount--) {
-			delete this->_dropped[this->_droppedCount];
-			this->_dropped[this->_droppedCount] = NULL;
-		}
-		for (int i = 0; i < other._droppedCount; i++)
-			this->_dropped[i] = typeBasedAllocation(other._dropped[i]);
 	}
 	return *this;
 }
@@ -58,20 +59,20 @@ std::string const & Character::getName() const {
 
 void Character::equip(AMateria * m) {
 	for (int i = 0; i < 4; i++)
-		if (!this->_materials[i]) {
+		if (!this->_available[i]) {
+			delete this->_materials[i];
 			this->_materials[i] = m;
+			this->_available[i] = true;
 			break ;
 		}
 }
 
 void Character::unequip(int idx) {
-	if (idx > -1 && idx < 4 && this->_materials[idx]) {
-		this->_dropped[this->_droppedCount++] = this->_materials[idx];
-		this->_materials[idx] = NULL;
-	}
+	if (idx > -1 && idx < 4)
+		this->_available[idx] = false;
 }
 
 void Character::use(int idx, ICharacter & target) {
-	if (idx > -1 && idx < 4 && this->_materials[idx])
+	if (idx > -1 && idx < 4 && this->_available[idx])
 		this->_materials[idx]->use(target);
 }

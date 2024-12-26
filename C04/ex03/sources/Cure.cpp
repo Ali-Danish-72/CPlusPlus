@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 19:16:46 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/25 22:37:32 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/26 23:03:19 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ Cure::Cure(void) : AMateria("cure") {
 	std::cout << "Default Cure Constructor called.\n";
 }
 
-Cure::Cure(Cure const & other) : AMateria("cure") {
-	(void)other;
+Cure::Cure(Cure const & other) : AMateria(other) {
 	std::cout << "Copy Cure Constructor called.\n";
 }
 
@@ -27,13 +26,13 @@ Cure::~Cure(void) {
 }
 
 Cure & Cure::operator = (Cure const & other) {
-	(void)other;
 	std::cout << "Copy Cure Assignment Operator called.\n";
+	(void)other;
 	return *this;
 }
 
 AMateria * Cure::clone(void) const {
-	return new Cure(*this);
+	return new Cure();
 }
 
 void Cure::use(ICharacter & target) {

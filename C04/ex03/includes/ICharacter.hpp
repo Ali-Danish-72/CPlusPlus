@@ -6,15 +6,15 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 19:24:50 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/25 19:51:53 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/26 20:11:36 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class ICharacter; // test removal
-
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
