@@ -6,18 +6,17 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 19:17:48 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/25 01:58:28 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/27 15:50:56 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Brain.hpp"
+#include <string>
 
 class Animal {
 	protected:
 		std::string _type;
-		Brain * _brain;
 
 	public:
 		Animal(void);
@@ -28,6 +27,4 @@ class Animal {
 
 		virtual void makeSound(void) const = 0;
 		const std::string & getType(void) const;
-		void addIdea(std::string idea);
-		std::string retrieveIdea(int index) const;
 };

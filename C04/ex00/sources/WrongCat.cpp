@@ -6,14 +6,14 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 07:02:12 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/24 03:27:24 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/27 15:22:45 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/WrongCat.hpp"
 #include <iostream>
 
-WrongCat::WrongCat(void) : WrongAnimal("cat") {
+WrongCat::WrongCat(void) : WrongAnimal("(wrong)cat") {
 	std::cout << "Default WrongCat Constructor called.\n";
 }
 

@@ -6,18 +6,17 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 23:21:17 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/24 22:41:28 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/27 15:30:51 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Brain.hpp"
+#include <string>
 
 class WrongAnimal {
 	protected:
 		std::string _type;
-		Brain * _brain;
 
 	public:
 		WrongAnimal(void);
@@ -28,6 +27,4 @@ class WrongAnimal {
 
 		void makeSound(void) const;
 		const std::string & getType(void) const;
-		void addIdea(std::string idea);
-		std::string retrieveIdea(int index) const;
 };

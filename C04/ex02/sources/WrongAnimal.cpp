@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 06:57:39 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/24 22:41:18 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/27 15:31:07 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,4 @@ void WrongAnimal::makeSound(void) const {
 
 const std::string & WrongAnimal::getType(void) const {
 	return this->_type;
-}
-
-void WrongAnimal::addIdea(std::string idea) {
-	static int index;
-
-	if (!this->_brain) std::cout << "There is no brain.\n";
-	else if (index == 100) std::cout << "The brain is full.\n";
-	else this->_brain->addIdea(idea, index++);
-}
-
-std::string WrongAnimal::retrieveIdea(int index) const {
-	if (!this->_brain) return (std::cout << "There is no brain.\n", "");
-	return this->_brain->retrieveIdea(index);
 }

@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 23:13:05 by mdanish           #+#    #+#             */
-/*   Updated: 2024/12/24 22:14:49 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/12/27 15:34:06 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Dog & Dog::operator = (const Dog & other) {
 	if (&other != this) {
 		this->_brain = new Brain(*other._brain);
 		if (!this->_brain) std::cerr << "The allocation for Brain failed.\n";
-		this->_type = other._type;
 	}
 	return *this;
 }
@@ -41,4 +40,18 @@ Dog::~Dog(void) {
 
 void Dog::makeSound(void) const {
 	std::cout << "Woof\n";
+}
+
+void Dog::addIdea(std::string idea) {
+	static int index;
+
+	if (!this->_brain) std::cout << "There is no brain.\n";
+	else if (index == 100) std::cout << "The brain is full.\n";
+	else this->_brain->addIdea(idea, index++);
+}
+
+std::string Dog::retrieveIdea(int index) const {
+	if (!this->_brain) return (std::cout << "There is no brain.\n", "");
+	if (index > 99 || index < 10) return (std::cout << "Invalid index prompted\n", "");
+	return this->_brain->retrieveIdea(index);
 }
