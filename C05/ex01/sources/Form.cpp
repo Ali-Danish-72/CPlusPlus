@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:24:04 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/07 08:15:53 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/08 16:09:26 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Form::Form(std::string formName, int signGrade, int executeGrade) : _formName(fo
 		throw GradeTooLow();
 	if (signGrade < 1 || executeGrade < 1)
 		throw GradeTooHigh();
-	this->_signed = false;
+	formName == "" ? throw EmptyName() : this->_signed = false;
 }
 
 Form::Form(const Form & other) : _formName(other._formName + " copy"), _signGrade(other._signGrade), _executeGrade(other._executeGrade) {
@@ -54,6 +54,10 @@ const char * Form::FormAlreadySigned::what(void) const throw() {
 	return "The form is already signed.";
 }
 
+const char * Form::EmptyName::what(void) const throw() {
+	return "The form name prompted is empty.";
+}
+
 bool Form::getSignStatus(void) const {
 	return this->_signed;
 }
@@ -77,7 +81,6 @@ void Form::beSigned(const Bureaucrat & bureaucrat) {
 
 std::ostream & operator << (std::ostream & out, const Form & other) {
 	out << "Form \"" << other.getFormName() << "\", ";
-	// out << other.getSignStatus() << '\n';
 	out << (other.getSignStatus() ? "is signed.\n" : "is not signed.\n");
 	out << "It can be signed by grades above and equal to " << other.getSignGrade();
 	out << " and can be executed by grades equal and above " << other.getExecuteGrade() << ".\n";
