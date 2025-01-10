@@ -6,25 +6,24 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 15:16:21 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/10 17:06:40 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/10 17:09:22 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Intern.hpp"
-#include <memory>
 
 void testShrubbery() {
+	AForm * form;
 	try {
 		Bureaucrat				bob("Bob", 146);
 		// Bureaucrat				bob("Bob", 138);
 		Intern					freshie;
-		std::unique_ptr<AForm> form(freshie.makeForm("Shrubbery Creation", "Town_Square"));
-
+		form = freshie.makeForm("Shrubbery Creation", "Town_Square");
 		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << *form;
+		std::cout << form;
 		bob.signForm(*form);
-		std::cout << *form;
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
@@ -33,23 +32,25 @@ void testShrubbery() {
 		bob.signForm(*form);
 		bob.executeForm(*form);
 
-		std::cout << *form;
+		std::cout << form;
 	} catch (std::exception &e) {
 		std::cout << e.what() << '\n';
 	}
+	delete form;
 }
 
 void testRobotomy() {
+	AForm * form;
 	try {
 		Bureaucrat				bob("Bob", 73);
 		// Bureaucrat				bob("Bob", 46);
 		Intern					freshie;
-		std::unique_ptr<AForm> form(freshie.makeForm("Robotomy Request", "Space Shuttle"));
+		form = freshie.makeForm("Robotomy Request", "Space Shuttle");
 		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << *form;
+		std::cout << form;
 		bob.signForm(*form);
-		std::cout << *form;
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
@@ -58,23 +59,25 @@ void testRobotomy() {
 		bob.signForm(*form);
 		bob.executeForm(*form);
 
-		std::cout << *form;
+		std::cout << form;
 	} catch (std::exception &e) {
 		std::cout << e.what() << '\n';
 	}
+	delete form;
 }
 
 void testPresidential() {
+	AForm * form;
 	try {
 		Bureaucrat				bob("Bob", 26);
 		// Bureaucrat				bob("Bob", 6);
 		Intern					freshie;
-		std::unique_ptr<AForm> form(freshie.makeForm("Presidential Pardon", "Optimus Prime"));
+		form = freshie.makeForm("Presidential Pardon", "Optimus Prime");
 		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << *form;
+		std::cout << form;
 		bob.signForm(*form);
-		std::cout << *form;
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
@@ -83,10 +86,11 @@ void testPresidential() {
 		bob.signForm(*form);
 		bob.executeForm(*form);
 
-		std::cout << *form;
+		std::cout << form;
 	} catch (std::exception &e) {
 		std::cout << e.what() << '\n';
 	}
+	delete form;
 }
 
 int main(void) {
