@@ -6,81 +6,96 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 15:16:21 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/09 16:54:37 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/10 04:59:40 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/Intern.hpp"
 
 void testShrubbery() {
+	AForm * form;
 	try {
 		Bureaucrat				bob("Bob", 146);
 		// Bureaucrat				bob("Bob", 138);
-		ShrubberyCreationForm   formA("Town_Square");
+		Intern					freshie;
+		form = freshie.makeForm("Shrubbery Creation", "Town_Square");
+		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << formA;
-		bob.signForm(formA);
-		std::cout << formA;
+		std::cout << form;
+		bob.signForm(*form);
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
 		std::cout << bob;
 
-		bob.signForm(formA);
-		bob.executeForm(formA);
+		bob.signForm(*form);
+		bob.executeForm(*form);
 
-		std::cout << formA;
+		std::cout << form;
 
+		delete form;
 	} catch (std::exception &e) {
-		std::cout << e.what();
+		std::cout << e.what() << '\n';
+		delete form;
 	}
 }
 
 void testRobotomy() {
+	AForm * form;
 	try {
 		Bureaucrat				bob("Bob", 73);
 		// Bureaucrat				bob("Bob", 46);
-		RobotomyRequestForm		formB("Space Shuttle");
+		Intern					freshie;
+		form = freshie.makeForm("Robotomy Request", "Space Shuttle");
+		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << formB;
-		bob.signForm(formB);
-		std::cout << formB;
+		std::cout << form;
+		bob.signForm(*form);
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
 		std::cout << bob;
 
-		bob.signForm(formB);
-		bob.executeForm(formB);
+		bob.signForm(*form);
+		bob.executeForm(*form);
 
-		std::cout << formB;
+		std::cout << form;
+
+		delete form;
 	} catch (std::exception &e) {
-		std::cout << e.what();
+		std::cout << e.what() << '\n';
+		delete form;
 	}
 }
 
 void testPresidential() {
-	  try {
+	AForm * form;
+	try {
 		Bureaucrat				bob("Bob", 26);
 		// Bureaucrat				bob("Bob", 6);
-		PresidentialPardonForm	formC("Optimus Prime");
+		Intern					freshie;
+		form = freshie.makeForm("Presidential Pardon", "Optimus Prime");
+		if (!form) throw Intern::FormCreationFailed();
 
-		std::cout << formC;
-		bob.signForm(formC);
-		std::cout << formC;
+		std::cout << form;
+		bob.signForm(*form);
+		std::cout << form;
 
 		std::cout << bob;
 		bob.incrementGrade();
 		std::cout << bob;
 
-		bob.signForm(formC);
-		bob.executeForm(formC);
+		bob.signForm(*form);
+		bob.executeForm(*form);
 
-		std::cout << formC;
+		std::cout << form;
+
+		delete form;
 	} catch (std::exception &e) {
-		std::cout << e.what();
+		std::cout << e.what() << '\n';
+		delete form;
 	}
 }
 
@@ -90,5 +105,12 @@ int main(void) {
 	if (testCase == 1) testShrubbery();
 	else if (testCase == 2) testRobotomy();
 	else testPresidential();
+	try {
+		Intern newbie;
+		AForm * noForm = newbie.makeForm("non existant", "no one");
+		if (!noForm) throw Intern::FormCreationFailed();
+	} catch (std::exception &e) {
+		std::cout << e.what() << "\n";
+	}
 	return 0;
 }
