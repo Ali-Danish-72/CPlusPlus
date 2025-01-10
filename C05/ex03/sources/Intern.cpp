@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:15:28 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/10 04:50:35 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/10 18:28:58 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ const char * Intern::FormCreationFailed::what() const throw(){
 
 AForm * Intern::makeForm(std::string formType, std::string formTarget) const {
 	std::string formTypes[] = {"Shrubbery Creation", "Robotomy Request", "Presedential Pardon"};
-	AForm * (*formCreatorFunctions[3])(std::string target);
-	formCreatorFunctions[0] = &createShrubbery;
-	formCreatorFunctions[1] = &createRobotomy;
-	formCreatorFunctions[2] = &createPresidential;
+	AForm * (*formCreatorFunctions[])(std::string target) = {&createShrubbery, &createRobotomy, &createPresidential};
 
 	for (int i = 0; i < 3; i++)
 		if (formTypes[i] == formType)
