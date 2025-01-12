@@ -1,7 +1,7 @@
 ###############################################################################
 #                                  VARIABLES                                  #
 ###############################################################################
-NAME = convert
+NAME = serialize
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 RESET=\033[0m
@@ -10,7 +10,7 @@ GREEN=\033[1;32m
 BLUE=\033[1;34m
 CYAN=\033[1;36m
 SRCS_DIR = sources/
-SRCS = Converter.cpp main.cpp
+SRCS = main.cpp Serializer.cpp
 SRCS_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS_DIR = objects/
 OBJS = $(SRCS:%.cpp=%.o)
