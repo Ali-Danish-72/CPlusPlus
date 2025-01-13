@@ -6,26 +6,20 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 20:59:02 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/13 21:23:59 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/13 21:28:31 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/whatever.hpp"
-#include <iostream>
+#include "../includes/iter.hpp"
 #include <string>
 
 int main( void ) {
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	std::string a[10] = {"50", "10", "21", "38", "42", "55", "76", "27", "38", "95"};
+	int b[10] = {50, 10, 21, 38, 42, 55, 76, 27, 38, 95};
+
+	std::cout << "Called the instantiated printing template function:\n";
+	::iter(a, 10, ::testprint<std::string>);
+	std::cout << "Called the printing template function:\n";
+	::iter(b, 10, ::testprint);
 	return 0;
 }
