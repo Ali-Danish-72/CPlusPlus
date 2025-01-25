@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:31:22 by mdanish           #+#    #+#             */
-/*   Updated: 2025/01/20 17:19:05 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:31:31 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ template <class T> typename T::const_iterator easyfind(const T & container, cons
 	return std::find(container.begin(), container.end(), toFind);
 }
 
-template <class T> typename T::iterator easyfind( T & container, const int toFind) {
+template <class T> typename T::iterator easyfind(T & container, const int toFind) {
 	return std::find(container.begin(), container.end(), toFind);
 }
-
