@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:06:55 by mdanish           #+#    #+#             */
-/*   Updated: 2025/02/21 16:52:51 by mdanish          ###   ########.fr       */
+/*   Updated: 2025/02/22 17:08:53 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 RPN::RPN() {}
 
-RPN::RPN(const RPN & other) { *this = other; }
-
 RPN::~RPN() {}
-
-RPN & RPN::operator = (const RPN & other) {
-	if (this != &other)
-		this->_mainStack = other._mainStack;
-	return *this;
-}
 
 void RPN::operationTime(char operatorCharacter) throw(std::runtime_error) {
 	int topNumber = this->_mainStack.top();
